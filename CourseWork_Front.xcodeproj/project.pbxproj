@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39782B91264937390040AE3A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 39782B90264937390040AE3A /* SwiftyJSON */; };
+		39782B93264937C00040AE3A /* FlightsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39782B92264937C00040AE3A /* FlightsList.swift */; };
 		397D810E2640980C001CA44D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D810D2640980C001CA44D /* AppDelegate.swift */; };
 		397D81102640980C001CA44D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D810F2640980C001CA44D /* SceneDelegate.swift */; };
 		397D81122640980C001CA44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D81112640980C001CA44D /* ContentView.swift */; };
@@ -14,9 +16,17 @@
 		397D81172640980D001CA44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 397D81162640980D001CA44D /* Assets.xcassets */; };
 		397D811A2640980D001CA44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 397D81192640980D001CA44D /* Preview Assets.xcassets */; };
 		397D811D2640980E001CA44D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397D811B2640980E001CA44D /* LaunchScreen.storyboard */; };
+		397D81252640A2D3001CA44D /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D81242640A2D3001CA44D /* ConnectionHandler.swift */; };
+		397D81282640A390001CA44D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 397D81272640A390001CA44D /* Alamofire */; };
+		397D812A2640A3D4001CA44D /* BuyTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D81292640A3D4001CA44D /* BuyTickets.swift */; };
+		397D812C2640AD72001CA44D /* EmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812B2640AD72001CA44D /* EmployeesView.swift */; };
+		397D812E2640AD82001CA44D /* PlanesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812D2640AD82001CA44D /* PlanesView.swift */; };
+		397D81302640AD8E001CA44D /* BaggageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812F2640AD8E001CA44D /* BaggageView.swift */; };
+		397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397EA9B92649DE3E0015F0F9 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39782B92264937C00040AE3A /* FlightsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsList.swift; sourceTree = "<group>"; };
 		397D810A2640980C001CA44D /* CourseWork_Front.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseWork_Front.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		397D810D2640980C001CA44D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		397D810F2640980C001CA44D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +36,12 @@
 		397D81192640980D001CA44D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		397D811C2640980E001CA44D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		397D811E2640980E001CA44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		397D81242640A2D3001CA44D /* ConnectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
+		397D81292640A3D4001CA44D /* BuyTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTickets.swift; sourceTree = "<group>"; };
+		397D812B2640AD72001CA44D /* EmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesView.swift; sourceTree = "<group>"; };
+		397D812D2640AD82001CA44D /* PlanesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesView.swift; sourceTree = "<group>"; };
+		397D812F2640AD8E001CA44D /* BaggageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageView.swift; sourceTree = "<group>"; };
+		397EA9B92649DE3E0015F0F9 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +49,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39782B91264937390040AE3A /* SwiftyJSON in Frameworks */,
+				397D81282640A390001CA44D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39782B942649A7430040AE3A /* Tab Pages */ = {
+			isa = PBXGroup;
+			children = (
+				397D812D2640AD82001CA44D /* PlanesView.swift */,
+				397D812B2640AD72001CA44D /* EmployeesView.swift */,
+				39782B92264937C00040AE3A /* FlightsList.swift */,
+				397D812F2640AD8E001CA44D /* BaggageView.swift */,
+			);
+			path = "Tab Pages";
+			sourceTree = "<group>";
+		};
+		39782B952649A7560040AE3A /* Sub Pages */ = {
+			isa = PBXGroup;
+			children = (
+				397D81292640A3D4001CA44D /* BuyTickets.swift */,
+				397EA9B92649DE3E0015F0F9 /* AddView.swift */,
+			);
+			path = "Sub Pages";
+			sourceTree = "<group>";
+		};
 		397D81012640980C001CA44D = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +99,9 @@
 				397D810D2640980C001CA44D /* AppDelegate.swift */,
 				397D810F2640980C001CA44D /* SceneDelegate.swift */,
 				397D81112640980C001CA44D /* ContentView.swift */,
+				39782B952649A7560040AE3A /* Sub Pages */,
+				39782B942649A7430040AE3A /* Tab Pages */,
+				397D81242640A2D3001CA44D /* ConnectionHandler.swift */,
 				397D81162640980D001CA44D /* Assets.xcassets */,
 				397D811B2640980E001CA44D /* LaunchScreen.storyboard */,
 				397D811E2640980E001CA44D /* Info.plist */,
@@ -94,6 +135,10 @@
 			dependencies = (
 			);
 			name = CourseWork_Front;
+			packageProductDependencies = (
+				397D81272640A390001CA44D /* Alamofire */,
+				39782B90264937390040AE3A /* SwiftyJSON */,
+			);
 			productName = CourseWork_Front;
 			productReference = 397D810A2640980C001CA44D /* CourseWork_Front.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +166,10 @@
 				Base,
 			);
 			mainGroup = 397D81012640980C001CA44D;
+			packageReferences = (
+				397D81262640A390001CA44D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				39782B8F264937390040AE3A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 397D810B2640980C001CA44D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -148,9 +197,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				397D81302640AD8E001CA44D /* BaggageView.swift in Sources */,
 				397D810E2640980C001CA44D /* AppDelegate.swift in Sources */,
+				397D812E2640AD82001CA44D /* PlanesView.swift in Sources */,
+				397D812C2640AD72001CA44D /* EmployeesView.swift in Sources */,
+				397D81252640A2D3001CA44D /* ConnectionHandler.swift in Sources */,
 				397D81152640980C001CA44D /* CourseWork_Front.xcdatamodeld in Sources */,
+				397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */,
 				397D81102640980C001CA44D /* SceneDelegate.swift in Sources */,
+				39782B93264937C00040AE3A /* FlightsList.swift in Sources */,
+				397D812A2640A3D4001CA44D /* BuyTickets.swift in Sources */,
 				397D81122640980C001CA44D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +405,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39782B8F264937390040AE3A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		397D81262640A390001CA44D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39782B90264937390040AE3A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39782B8F264937390040AE3A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		397D81272640A390001CA44D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 397D81262640A390001CA44D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		397D81132640980C001CA44D /* CourseWork_Front.xcdatamodeld */ = {

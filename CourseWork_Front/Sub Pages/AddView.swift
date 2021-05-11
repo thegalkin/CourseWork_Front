@@ -7,13 +7,15 @@
 
 import SwiftUI
 import Combine
-
+import Alamofire
+import SwiftyJSON
 
 /*
 Это универсальный класс, который будет адаптироваться под структуру создавая необходимые поля формы на основе
 полученной структуры(класса)
 
 */
+
 
 struct AddView<T>: View where T: ObservableObject{
 	var generatorClass: T
@@ -29,6 +31,10 @@ struct AddView<T>: View where T: ObservableObject{
 	@State var anyField: String = "" //нужно, потому что по биндингу к словарю подключаться нельзя
 	
 	@Environment(\.presentationMode) var presentationMode
+	
+	@State var isShowingSuccessAlert: Bool = false
+	@State var isShowingFailureAlert: Bool = false
+	
 	var body: some View {
 		if mirror != nil{
 			LazyVStack{
@@ -51,8 +57,7 @@ struct AddView<T>: View where T: ObservableObject{
 						}
 					
 					Button(action: {
-						
-						presentationMode.wrappedValue.dismiss()
+						addNew()
 					}){
 						RoundedRectangle(cornerRadius: 4)
 							.foregroundColor(.blue)
@@ -64,6 +69,11 @@ struct AddView<T>: View where T: ObservableObject{
 					.disabled(!settingsOK(dict: fieldsData, targetSize: mirror!.children.count))
 					Spacer()
 				}
+			}.alert(isPresented: $isShowingSuccessAlert){
+				Alert(title: Text("Успех"), dismissButton: .default(Text("OK"), action: {presentationMode.wrappedValue.dismiss()}))
+					
+			}.alert(isPresented: $isShowingFailureAlert){
+				Alert(title: Text("Неудача"), dismissButton: .cancel(Text("OK")))
 			}
 		}
 	}
@@ -72,6 +82,19 @@ struct AddView<T>: View where T: ObservableObject{
 			return true
 		}else{
 			return false
+		}
+	}
+	func addNew(){
+		let object = String(describing: generatorClass.self)
+		AF.request(getSetting(key: "rootURL") + "/\(object)", method: .post, parameters: fieldsData).response{ response in
+			switch response.result{
+				case .success:
+					print("success")
+					isShowingSuccessAlert = true
+				case let .failure(error):
+					isShowingFailureAlert = true
+					print(error)
+			}
 		}
 	}
 }

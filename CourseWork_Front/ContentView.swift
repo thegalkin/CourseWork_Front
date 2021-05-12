@@ -21,10 +21,10 @@ struct ContentView: View {
 			SettingsView().environmentObject(settings)
 		}else{
 			TabView(){
-				BuyTickets().tabItem {
+				FlightsList().tabItem {
 					VStack{
-						Image(systemName: "cart.badge.plus")
-						Text("Билеты")
+						Image(systemName: "tablecells")
+						Text("Вылеты")
 					}
 				}
 				BaggageView().tabItem {

@@ -23,6 +23,10 @@
 		397D812E2640AD82001CA44D /* PlanesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812D2640AD82001CA44D /* PlanesView.swift */; };
 		397D81302640AD8E001CA44D /* BaggageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812F2640AD8E001CA44D /* BaggageView.swift */; };
 		397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397EA9B92649DE3E0015F0F9 /* AddView.swift */; };
+		39B5F95F264C63CC002EBCDC /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F95E264C63CC002EBCDC /* Flight.swift */; };
+		39B5F961264C63E6002EBCDC /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F960264C63E6002EBCDC /* Plane.swift */; };
+		39B5F963264C657D002EBCDC /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F962264C657D002EBCDC /* Employee.swift */; };
+		39B5F965264C658C002EBCDC /* Baggage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F964264C658C002EBCDC /* Baggage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		397D812D2640AD82001CA44D /* PlanesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesView.swift; sourceTree = "<group>"; };
 		397D812F2640AD8E001CA44D /* BaggageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageView.swift; sourceTree = "<group>"; };
 		397EA9B92649DE3E0015F0F9 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		39B5F95E264C63CC002EBCDC /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		39B5F960264C63E6002EBCDC /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		39B5F962264C657D002EBCDC /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		39B5F964264C658C002EBCDC /* Baggage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baggage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 				397D810D2640980C001CA44D /* AppDelegate.swift */,
 				397D810F2640980C001CA44D /* SceneDelegate.swift */,
 				397D81112640980C001CA44D /* ContentView.swift */,
+				39B5F95D264C63B3002EBCDC /* Models */,
 				39782B952649A7560040AE3A /* Sub Pages */,
 				39782B942649A7430040AE3A /* Tab Pages */,
 				397D81242640A2D3001CA44D /* ConnectionHandler.swift */,
@@ -117,6 +126,17 @@
 				397D81192640980D001CA44D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		39B5F95D264C63B3002EBCDC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39B5F95E264C63CC002EBCDC /* Flight.swift */,
+				39B5F960264C63E6002EBCDC /* Plane.swift */,
+				39B5F962264C657D002EBCDC /* Employee.swift */,
+				39B5F964264C658C002EBCDC /* Baggage.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,12 +220,16 @@
 				397D81302640AD8E001CA44D /* BaggageView.swift in Sources */,
 				397D810E2640980C001CA44D /* AppDelegate.swift in Sources */,
 				397D812E2640AD82001CA44D /* PlanesView.swift in Sources */,
+				39B5F965264C658C002EBCDC /* Baggage.swift in Sources */,
+				39B5F963264C657D002EBCDC /* Employee.swift in Sources */,
+				39B5F961264C63E6002EBCDC /* Plane.swift in Sources */,
 				397D812C2640AD72001CA44D /* EmployeesView.swift in Sources */,
 				397D81252640A2D3001CA44D /* ConnectionHandler.swift in Sources */,
 				397D81152640980C001CA44D /* CourseWork_Front.xcdatamodeld in Sources */,
 				397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */,
 				397D81102640980C001CA44D /* SceneDelegate.swift in Sources */,
 				39782B93264937C00040AE3A /* FlightsList.swift in Sources */,
+				39B5F95F264C63CC002EBCDC /* Flight.swift in Sources */,
 				397D812A2640A3D4001CA44D /* BuyTickets.swift in Sources */,
 				397D81122640980C001CA44D /* ContentView.swift in Sources */,
 			);

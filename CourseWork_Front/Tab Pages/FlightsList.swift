@@ -9,24 +9,6 @@ import SwiftUI
 import SwiftyJSON
 import Alamofire
 
-struct Flight: Identifiable, Codable{
-	var id: Int64
-	private var flightName: String
-	private var planeId: String
-	private var prevFlightName: String //коннекшн с предыдущим полетом
-	private var startTime: TimeInterval
-	private var endTime: TimeInterval
-	private var planeModel: String
-	private var startCountry: String
-	private var endCountry: String
-	private var startCity: String
-	private var endCity: String
-	private var passengersAmount: Int
-	private var seatsNumbers: [Int]
-	private var seatsFullNames: [String]
-	private var personnelIds: [Int64]
-	private var baggageIds: [Int64]
-}
 
 class FlightsList_ViewModel: ObservableObject{
 	@Published var flightsData: JSON = JSON()
@@ -57,10 +39,11 @@ class FlightsList_ViewModel: ObservableObject{
 
 struct FlightsList: View {
 	@StateObject var model = FlightsList_ViewModel()
-	
+	@State var isAddingNew: Bool = false
     var body: some View {
 		NavigationView{
 			Text("Flights")
+				.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Flight())})
 		
 		
 		
@@ -68,15 +51,15 @@ struct FlightsList: View {
 		
 		
 		
-		
-		}.toolbar{
-			ToolbarItem{
-				Button(action:{
-					//add
-				}){
-					Image(systemName: "plus.diamond")
+				.toolbar{
+					ToolbarItem(placement: .navigationBarTrailing){
+						Button(action:{
+							isAddingNew = true
+						}){
+							Image(systemName: "plus")
+						}
+					}
 				}
-			}
 		}
     }
 }

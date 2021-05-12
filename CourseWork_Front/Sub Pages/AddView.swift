@@ -17,10 +17,10 @@ import SwiftyJSON
 */
 
 
-struct AddView<T>: View where T: ObservableObject{
-	var generatorClass: T
+struct AddView: View{
+	var generatorClass: Any
 	var mirror: Mirror? = nil
-	init(generatorClass: T){
+	init(generatorClass: Any){
 		self.generatorClass = generatorClass
 		
 		self.mirror = Mirror(reflecting: generatorClass)
@@ -35,10 +35,21 @@ struct AddView<T>: View where T: ObservableObject{
 	@State var isShowingSuccessAlert: Bool = false
 	@State var isShowingFailureAlert: Bool = false
 	
+	var settingsOK: Bool {
+		return !settingsOK(dict: fieldsData, targetSize: mirror!.children.count)
+	}
+	var classNameCleaner: String {
+		let raw: String = String(describing: generatorClass.self)
+		guard let idx = raw.firstIndex(of: "(") else{
+			return raw
+		}
+		return String(raw.prefix(upTo: idx))
+	}
+	
 	var body: some View {
 		if mirror != nil{
-			LazyVStack{
-				Text("Создание \(String(describing: generatorClass.self))").font(.largeTitle)
+			VStack{
+				Text("Создание \(classNameCleaner)").font(.largeTitle)
 				
 				Spacer()
 				
@@ -49,27 +60,41 @@ struct AddView<T>: View where T: ObservableObject{
 							(mirror?.children.startIndex)!,
 							offsetBy: i)
 						)!]
-					let label: String = (ch?.label!.chopPrefix(1))!
+					let label: String = (ch?.label!.replacingOccurrences(of: "_", with: ""))!
 					//					let value: String = (ch?.value!.chopPrefix(1))!
-					TextField(label, text: $anyField)
-						.onReceive(Just(label)){ new in
-							fieldsData[label] = new
-						}
 					
-					Button(action: {
-						addNew()
-					}){
-						RoundedRectangle(cornerRadius: 4)
-							.foregroundColor(.blue)
-							
-							.overlay(Text("Сохранить...").foregroundColor(Color(UIColor.label)))
-							.frame(width: 150, height: 60)
-					}
+					var fieldBind: Binding<String> = Binding<String>(
+						get: {
+							if fieldsData[label] != label{
+								return fieldsData[label] ?? ""
+							}else{
+								return ""
+							}
+						}, set: { newVal in
+//							if newVal != label{
+								fieldsData[label] = newVal
+//							}
+						})
+					TextField(label, text: fieldBind)
+
 					
-					.disabled(!settingsOK(dict: fieldsData, targetSize: mirror!.children.count))
-					Spacer()
+					
 				}
-			}.alert(isPresented: $isShowingSuccessAlert){
+				Spacer()
+				Button(action: {
+					addNew()
+				}){
+					RoundedRectangle(cornerRadius: 4)
+						.foregroundColor(!settingsOK ? .blue : .red)
+						
+						.overlay(Text("Сохранить...").foregroundColor(Color(UIColor.label)))
+						.frame(width: 150, height: 60)
+				}
+				
+				.disabled(settingsOK)
+				
+			}.frame(maxWidth: UIScreen.main.bounds.width / 100 * 90)
+			.alert(isPresented: $isShowingSuccessAlert){
 				Alert(title: Text("Успех"), dismissButton: .default(Text("OK"), action: {presentationMode.wrappedValue.dismiss()}))
 					
 			}.alert(isPresented: $isShowingFailureAlert){
@@ -85,8 +110,7 @@ struct AddView<T>: View where T: ObservableObject{
 		}
 	}
 	func addNew(){
-		let object = String(describing: generatorClass.self)
-		AF.request(getSetting(key: "rootURL") + "/\(object)", method: .post, parameters: fieldsData).response{ response in
+		AF.request(getSetting(key: "rootURL") + "/\(classNameCleaner)", method: .post, parameters: fieldsData).response{ response in
 			switch response.result{
 				case .success:
 					print("success")
@@ -100,15 +124,9 @@ struct AddView<T>: View where T: ObservableObject{
 }
 
 struct AddView_Previews: PreviewProvider {
-	class testClass: ObservableObject{
-		@Published var first: String = "1"
-		@Published var second: String = "2"
-		@Published var third: String = "3"
-	}
 	
-	@ObservedObject static var cls = testClass()
 	static var previews: some View {
-		AddView(generatorClass: cls)
+		AddView(generatorClass: Flight())
 	}
 }
 

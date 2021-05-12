@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct EmployeesView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+	@State var isAddingNew: Bool = false
+	var body: some View {
+		NavigationView{
+			Text("Employees")
+				.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Employee())})
+				.toolbar{
+					ToolbarItem(placement: .navigationBarTrailing){
+						Button(action:{
+							isAddingNew = true
+						}){
+							Image(systemName: "plus")
+						}
+					}
+				}
+		}
+	}
 }
 
 struct EmployeesView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmployeesView()
-    }
+	static var previews: some View {
+		EmployeesView()
+	}
 }

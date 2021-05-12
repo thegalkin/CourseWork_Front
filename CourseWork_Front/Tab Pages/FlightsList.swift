@@ -16,11 +16,13 @@ class FlightsList_ViewModel: ObservableObject{
 	
 	
 	func getData(){
-		AF.request(getSetting(key: "rootURL") + "/listAll").response{ response in
+		print("rootURL" + getSetting(key: "rootURL"))
+		AF.request(getSetting(key: "rootURL") + "/listAllFlights").response{ response in
 			switch response.result{
 				case .success:
 					do{
 						try self.flightsData = JSON(data: response.data!)
+						print(self.flightsData)
 					}catch{
 						print(error.localizedDescription)
 					}
@@ -40,28 +42,37 @@ class FlightsList_ViewModel: ObservableObject{
 struct FlightsList: View {
 	@StateObject var model = FlightsList_ViewModel()
 	@State var isAddingNew: Bool = false
-    var body: some View {
+	var body: some View {
 		NavigationView{
-			Text("Flights")
-				.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Flight())})
-		
-		
-		
-		
-		
-		
-		
-				.toolbar{
-					ToolbarItem(placement: .navigationBarTrailing){
-						Button(action:{
-							isAddingNew = true
-						}){
-							Image(systemName: "plus")
+			Group{
+				if model.flightsData.count != 0{
+					List(){
+						ForEach(0..<model.flightsData.count, id: \.self){ i in
+							FlightView(flight: model.flightsData[i])
 						}
+						
+					}
+				}else{
+					Text("Рейсов Нет")
+				}
+				
+			}
+			.onAppear{
+				model.getData()
+			}
+			.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Flight())})
+			.toolbar{
+				ToolbarItem(placement: .navigationBarTrailing){
+					Button(action:{
+						isAddingNew = true
+					}){
+						Image(systemName: "plus")
 					}
 				}
+			}
+			
 		}
-    }
+	}
 }
 struct FlightView: View{
 	var flight: JSON
@@ -103,16 +114,16 @@ struct FlightView: View{
 				
 				
 				Text(flight["flightName"].string ?? "Номер Рейса")
-			
+				
 			}
 		}.background(Color(UIColor.systemGroupedBackground))
 	}
 }
 
 struct FlightsList_Previews: PreviewProvider {
-    static var previews: some View {
-        FlightsList()
-    }
+	static var previews: some View {
+		FlightsList()
+	}
 }
 
 func unixToDate(_ unix: JSON) -> Date{

@@ -27,19 +27,19 @@ struct ContentView: View {
 						Text("Вылеты")
 					}
 				}
-				BaggageView().tabItem {
+				AnyTab(generatorClass: Baggage()).tabItem {
 					VStack{
 						Image(systemName: "bag")
 						Text("Багаж")
 					}
 				}
-				PlanesView().tabItem {
+				AnyTab(generatorClass: Planes()).tabItem {
 					VStack{
 						Image(systemName: "airplane.circle")
 						Text("Самолеты")
 					}
 				}
-				EmployeesView().tabItem {
+				AnyTab(generatorClass: Employee()).tabItem {
 					VStack{
 						Image(systemName: "rectangle.stack.person.crop")
 						Text("Персонал")

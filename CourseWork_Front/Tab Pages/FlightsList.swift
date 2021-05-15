@@ -31,9 +31,7 @@ class FlightsList_ViewModel: ObservableObject{
 			}
 		}
 	}
-	func createFlight(flight: Flight){
-		
-	}
+	
 }
 
 

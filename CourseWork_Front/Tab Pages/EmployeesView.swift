@@ -17,20 +17,30 @@ class Common_ViewModel: ObservableObject{
 			self.generatorClass = generatorClass
 		}
 	}
-	var classNameCleaner: String {
+	var classNameCleaner: String = ""
+	
+	func cleanClassName(_ className: Any){
 		if generatorClass != nil{
-			let raw: String = String(describing: generatorClass.self)
+			let raw: String = String(describing: generatorClass.self!)
 			guard let idx = raw.firstIndex(of: "(") else{
-				return raw
+				self.classNameCleaner = raw
+				return
 			}
-			return String(raw.prefix(upTo: idx))
+			//не использовать - вешает приложение
+			//			self.objectWillChange.send()
+			self.classNameCleaner = String(raw.prefix(upTo: idx))
+		}else{
+		//		self.objectWillChange.send()
+			self.classNameCleaner =  ""
 		}
-		return ""
 	}
 	
 	func getData(){
 		if generatorClass != nil{
-			print("rootURL" + getSetting(key: "rootURL"))
+			print("adressing: " + getSetting(key: "rootURL") + "/listAll" + classNameCleaner)
+			if classNameCleaner == "Employee"{
+				classNameCleaner = "Employees"
+			}
 			AF.request(getSetting(key: "rootURL") + "/listAll"+classNameCleaner).response{ response in
 				switch response.result{
 					case .success:
@@ -49,15 +59,14 @@ class Common_ViewModel: ObservableObject{
 }
 
 struct AnyTab: View {
-	@State var generatorClass: Any?
+	var generatorClass: Any
 	@State var isAddingNew: Bool = false
 	@StateObject var model: Common_ViewModel = Common_ViewModel(generatorClass: nil)
-	init(generatorClass: Any){
-		self.generatorClass = generatorClass
-		if model.generatorClass == nil{
-			model.generatorClass = generatorClass
-		}
-	}
+//	init(generatorClass: Any){
+//		self.generatorClass = generatorClass
+//
+//
+//	}
 	var whoIsAbscent: String{
 		switch model.classNameCleaner {
 			case "Flight":
@@ -80,7 +89,21 @@ struct AnyTab: View {
 				if model.data.count != 0{
 					List(){
 						ForEach(0..<model.data.count, id: \.self){ i in
-							FlightView(flight: model.data[i])
+							switch model.classNameCleaner {
+								case "Flight":
+									FlightView(flight: model.data[i])
+								case "Employees":
+									EmployeeView(db: model.data[i])
+								case "Plane":
+									PlaceholerView()
+								case "Baggage":
+									PlaceholerView()
+								case "":
+									PlaceholerView()
+								default:
+									PlaceholerView()
+							}
+							
 						}
 						
 					}
@@ -92,7 +115,14 @@ struct AnyTab: View {
 				
 			}
 			.onAppear{
-				model.getData()
+				DispatchQueue.init(label: "sync").sync {
+					model.cleanClassName(generatorClass)
+					if model.generatorClass == nil{
+						model.generatorClass = generatorClass
+					}
+					model.getData()
+				}
+				
 			}
 			.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Employee())})
 			.toolbar{
@@ -108,6 +138,11 @@ struct AnyTab: View {
 	}
 }
 
+struct PlaceholerView: View{
+	var body: some View{
+		Text("заглушка")
+	}
+}
 struct EmployeesView_Previews: PreviewProvider {
 	static var previews: some View {
 		AnyTab(generatorClass: Employee())

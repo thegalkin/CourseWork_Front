@@ -11,13 +11,13 @@ import SwiftUI
 class AppSettings: ObservableObject{
 	@Published var rootURL: String = getSetting(key: "rootURL")
 	@Published var tocken: String = getSetting(key: "userTocken")
-	@Published var isShowingSettings = false
+	@Published var isShowingSettings = true
 }
 
 struct ContentView: View {
 	@StateObject var settings: AppSettings = AppSettings()
     var body: some View {
-		if settings.rootURL != "" && settings.rootURL != "" && settings.isShowingSettings{
+		if settings.rootURL == "" && settings.rootURL == "" && settings.isShowingSettings{
 			SettingsView().environmentObject(settings)
 		}else{
 			TabView(){

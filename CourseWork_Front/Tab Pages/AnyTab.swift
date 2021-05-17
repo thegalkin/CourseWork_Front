@@ -37,6 +37,9 @@ class Common_ViewModel: ObservableObject{
 	
 	func getData(){
 		if generatorClass != nil{
+			if classNameCleaner == "Plane"{
+				classNameCleaner = "Planes"
+			}
 			print("adressing: " + getSetting(key: "rootURL") + "/listAll" + classNameCleaner)
 			if classNameCleaner == "Employee"{
 				classNameCleaner = "Employees"
@@ -73,7 +76,7 @@ struct AnyTab: View {
 				return "Рейсов"
 			case "Employee":
 				return "Работников"
-			case "Plane":
+			case "Planes":
 				return "Самолётов"
 			case "Baggage":
 				return "Багажа"
@@ -97,7 +100,7 @@ struct AnyTab: View {
 								case "Plane":
 									PlaneView(db: model.data[i])
 								case "Baggage":
-									PlaceholerView()
+									BaggageView(db: model.data[i])
 								case "":
 									PlaceholerView()
 								default:
@@ -124,7 +127,7 @@ struct AnyTab: View {
 				}
 				
 			}
-			.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Employee())})
+			.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: generatorClass)})
 			.toolbar{
 				ToolbarItem(placement: .navigationBarTrailing){
 					Button(action:{

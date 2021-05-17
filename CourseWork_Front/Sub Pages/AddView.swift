@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import Alamofire
 import SwiftyJSON
+import AnyCodable
 
 /*
 Это универсальный класс, который будет адаптироваться под структуру создавая необходимые поля формы на основе
@@ -62,7 +63,7 @@ struct AddView: View{
 						)!]
 					let label: String = (ch?.label!.replacingOccurrences(of: "_", with: ""))!
 					//					let value: String = (ch?.value!.chopPrefix(1))!
-					
+					let type: String = typeName(ch!.value)
 					var fieldBind: Binding<String> = Binding<String>(
 						get: {
 							if fieldsData[label] != label{
@@ -72,7 +73,16 @@ struct AddView: View{
 							}
 						}, set: { newVal in
 //							if newVal != label{
+							
+							if type == "Optional<Array<String>>"{
+								var nnVal = newVal
+								nnVal = nnVal.replacingOccurrences(of: "[", with: "")
+								nnVal = nnVal.replacingOccurrences(of: "]", with: "")
+								fieldsData[label] = "[" + nnVal + "]"
+								print("new: "+fieldsData[label]!)
+							}else{
 								fieldsData[label] = newVal
+							}
 //							}
 						})
 					TextField(label, text: fieldBind)
@@ -110,10 +120,33 @@ struct AddView: View{
 		}
 	}
 	func addNew(){
-		AF.request(getSetting(key: "rootURL") + "/\(classNameCleaner)", method: .post, parameters: fieldsData).response{ response in
+		var newParametres: [String: AnyEncodable] = [:]
+		fieldsData.removeValue(forKey: "id")
+		for (k,v) in fieldsData{
+			newParametres[k] = AnyEncodable(fieldsData[k])
+		}
+		for (k,v) in newParametres{
+			if let l = String(describing: v).firstIndex(of: "["), let r = String(describing: v).lastIndex(of: "]"){
+				
+			}
+			if String(describing: v).contains("["){
+				newParametres[k] = [String(describing: v)
+										.replacingOccurrences(of: "[", with: "")
+										.replacingOccurrences(of: "]", with: "")
+				]
+										
+				
+			}
+		}
+		
+		AF.request(getSetting(key: "rootURL") + "/add\(classNameCleaner)", method: .post, parameters: newParametres, encoder: JSONParameterEncoder.default)
+			.cURLDescription { description in
+				print(description)
+			}
+			.response{ response in
 			switch response.result{
 				case .success:
-					print("success")
+					print("success adding")
 					isShowingSuccessAlert = true
 				case let .failure(error):
 					isShowingFailureAlert = true

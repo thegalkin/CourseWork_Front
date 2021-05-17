@@ -16,10 +16,9 @@
 		397D81172640980D001CA44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 397D81162640980D001CA44D /* Assets.xcassets */; };
 		397D811A2640980D001CA44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 397D81192640980D001CA44D /* Preview Assets.xcassets */; };
 		397D811D2640980E001CA44D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397D811B2640980E001CA44D /* LaunchScreen.storyboard */; };
-		397D81252640A2D3001CA44D /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D81242640A2D3001CA44D /* ConnectionHandler.swift */; };
 		397D81282640A390001CA44D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 397D81272640A390001CA44D /* Alamofire */; };
 		397D812A2640A3D4001CA44D /* BuyTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D81292640A3D4001CA44D /* BuyTickets.swift */; };
-		397D812C2640AD72001CA44D /* EmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812B2640AD72001CA44D /* EmployeesView.swift */; };
+		397D812C2640AD72001CA44D /* AnyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812B2640AD72001CA44D /* AnyTab.swift */; };
 		397D812E2640AD82001CA44D /* PlanesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812D2640AD82001CA44D /* PlanesView.swift */; };
 		397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397EA9B92649DE3E0015F0F9 /* AddView.swift */; };
 		399D0C0C2650152200B18B84 /* EmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D0C0B2650152200B18B84 /* EmployeeView.swift */; };
@@ -29,6 +28,8 @@
 		39B5F961264C63E6002EBCDC /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F960264C63E6002EBCDC /* Plane.swift */; };
 		39B5F963264C657D002EBCDC /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F962264C657D002EBCDC /* Employee.swift */; };
 		39B5F965264C658C002EBCDC /* Baggage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F964264C658C002EBCDC /* Baggage.swift */; };
+		39B87A062652ED53006642AF /* Funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B87A052652ED53006642AF /* Funcs.swift */; };
+		39B87A092652F5B3006642AF /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 39B87A082652F5B3006642AF /* AnyCodable */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +43,8 @@
 		397D81192640980D001CA44D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		397D811C2640980E001CA44D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		397D811E2640980E001CA44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		397D81242640A2D3001CA44D /* ConnectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		397D81292640A3D4001CA44D /* BuyTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTickets.swift; sourceTree = "<group>"; };
-		397D812B2640AD72001CA44D /* EmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesView.swift; sourceTree = "<group>"; };
+		397D812B2640AD72001CA44D /* AnyTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTab.swift; sourceTree = "<group>"; };
 		397D812D2640AD82001CA44D /* PlanesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesView.swift; sourceTree = "<group>"; };
 		397EA9B92649DE3E0015F0F9 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		399D0C0B2650152200B18B84 /* EmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeView.swift; sourceTree = "<group>"; };
@@ -54,6 +54,7 @@
 		39B5F960264C63E6002EBCDC /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		39B5F962264C657D002EBCDC /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		39B5F964264C658C002EBCDC /* Baggage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baggage.swift; sourceTree = "<group>"; };
+		39B87A052652ED53006642AF /* Funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39782B91264937390040AE3A /* SwiftyJSON in Frameworks */,
+				39B87A092652F5B3006642AF /* AnyCodable in Frameworks */,
 				397D81282640A390001CA44D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				397D812D2640AD82001CA44D /* PlanesView.swift */,
-				397D812B2640AD72001CA44D /* EmployeesView.swift */,
+				397D812B2640AD72001CA44D /* AnyTab.swift */,
 				39782B92264937C00040AE3A /* FlightsList.swift */,
 			);
 			path = "Tab Pages";
@@ -114,7 +116,7 @@
 				39B5F95D264C63B3002EBCDC /* Models */,
 				39782B952649A7560040AE3A /* Sub Pages */,
 				39782B942649A7430040AE3A /* Tab Pages */,
-				397D81242640A2D3001CA44D /* ConnectionHandler.swift */,
+				39B87A042652ED3F006642AF /* Extencions */,
 				397D81162640980D001CA44D /* Assets.xcassets */,
 				397D811B2640980E001CA44D /* LaunchScreen.storyboard */,
 				397D811E2640980E001CA44D /* Info.plist */,
@@ -153,6 +155,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		39B87A042652ED3F006642AF /* Extencions */ = {
+			isa = PBXGroup;
+			children = (
+				39B87A052652ED53006642AF /* Funcs.swift */,
+			);
+			path = Extencions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +182,7 @@
 			packageProductDependencies = (
 				397D81272640A390001CA44D /* Alamofire */,
 				39782B90264937390040AE3A /* SwiftyJSON */,
+				39B87A082652F5B3006642AF /* AnyCodable */,
 			);
 			productName = CourseWork_Front;
 			productReference = 397D810A2640980C001CA44D /* CourseWork_Front.app */;
@@ -203,6 +214,7 @@
 			packageReferences = (
 				397D81262640A390001CA44D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				39782B8F264937390040AE3A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				39B87A072652F5B2006642AF /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = 397D810B2640980C001CA44D /* Products */;
 			projectDirPath = "";
@@ -237,9 +249,9 @@
 				39B5F965264C658C002EBCDC /* Baggage.swift in Sources */,
 				39B5F963264C657D002EBCDC /* Employee.swift in Sources */,
 				39B5F961264C63E6002EBCDC /* Plane.swift in Sources */,
-				397D812C2640AD72001CA44D /* EmployeesView.swift in Sources */,
-				397D81252640A2D3001CA44D /* ConnectionHandler.swift in Sources */,
+				397D812C2640AD72001CA44D /* AnyTab.swift in Sources */,
 				399D0C0C2650152200B18B84 /* EmployeeView.swift in Sources */,
+				39B87A062652ED53006642AF /* Funcs.swift in Sources */,
 				397D81152640980C001CA44D /* CourseWork_Front.xcdatamodeld in Sources */,
 				397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */,
 				397D81102640980C001CA44D /* SceneDelegate.swift in Sources */,
@@ -463,6 +475,14 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		39B87A072652F5B2006642AF /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flight-School/AnyCodable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -475,6 +495,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 397D81262640A390001CA44D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		39B87A082652F5B3006642AF /* AnyCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39B87A072652F5B2006642AF /* XCRemoteSwiftPackageReference "AnyCodable" */;
+			productName = AnyCodable;
 		};
 /* End XCSwiftPackageProductDependency section */
 

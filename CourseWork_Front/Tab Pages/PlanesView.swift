@@ -12,7 +12,7 @@ struct PlanesView: View {
     var body: some View {
 		NavigationView{
 			Text("Planes")
-				.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Planes())})
+				.sheet(isPresented: $isAddingNew, content: {AddView(generatorClass: Plane())})
 				.toolbar{
 					ToolbarItem(placement: .navigationBarTrailing){
 						Button(action:{

@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct Planes: Encodable{
-	var id: Int64?
+public struct Plane: Encodable{
+//	var id: Int64?
 	var internationalNumber: String?
 	var russianNumber: String?
 	var boardName: String?

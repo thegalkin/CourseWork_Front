@@ -14,5 +14,5 @@ public struct Baggage: Encodable{
 	var targetFlightName: String?
 	var startCountry: String?
 	var middleCountries: [String]?
-	var endCountry: [String]?
+	var endCountry: String?
 }

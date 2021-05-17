@@ -13,7 +13,7 @@ struct EmployeeView: View {
     var body: some View {
 		NavigationLink(destination: EmployeeDetails(db: db)){
 			LazyHStack{
-				Text(db["id"].string ?? "id")
+				Text(String(db["id"].int64Value))
 				Text(db["name"].string ?? "Имя")
 				Text(db["secondname"].string ?? "Фамилия")
 				Text(db["lastname"].string ?? "Отчество")
@@ -26,7 +26,7 @@ struct EmployeeDetails: View{
 	var body: some View{
 		LazyVStack{
 			LazyHStack{
-				Text(db["id"].string ?? "id")
+				Text(String(db["id"].int64Value))
 				Text(db["name"].string ?? "Имя")
 				Text(db["secondname"].string ?? "Фамилия")
 				Text(db["lastname"].string ?? "Отчество")
@@ -37,7 +37,7 @@ struct EmployeeDetails: View{
 					Text("  \(licenses.arrayValue[i].stringValue)")
 				}
 			}else{
-				Text("Лицензии")
+				Text("Лицензии отсутствуют")
 			}
 			Text(db["role"].string ?? "Роль")
 			Text(db["countryoforigin"].string ?? "Страна происхождения")
@@ -47,7 +47,7 @@ struct EmployeeDetails: View{
 					Text("  \(visas.arrayValue[i].stringValue)")
 				}
 			}else{
-				Text("Визы")
+				Text("Визы отсутствуют")
 			}
 			
 		}

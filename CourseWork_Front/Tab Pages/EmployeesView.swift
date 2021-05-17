@@ -95,7 +95,7 @@ struct AnyTab: View {
 								case "Employees":
 									EmployeeView(db: model.data[i])
 								case "Plane":
-									PlaceholerView()
+									PlaneView(db: model.data[i])
 								case "Baggage":
 									PlaceholerView()
 								case "":

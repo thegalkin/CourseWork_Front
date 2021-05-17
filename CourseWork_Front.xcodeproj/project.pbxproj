@@ -21,9 +21,10 @@
 		397D812A2640A3D4001CA44D /* BuyTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D81292640A3D4001CA44D /* BuyTickets.swift */; };
 		397D812C2640AD72001CA44D /* EmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812B2640AD72001CA44D /* EmployeesView.swift */; };
 		397D812E2640AD82001CA44D /* PlanesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812D2640AD82001CA44D /* PlanesView.swift */; };
-		397D81302640AD8E001CA44D /* BaggageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D812F2640AD8E001CA44D /* BaggageView.swift */; };
 		397EA9BA2649DE3E0015F0F9 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397EA9B92649DE3E0015F0F9 /* AddView.swift */; };
 		399D0C0C2650152200B18B84 /* EmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D0C0B2650152200B18B84 /* EmployeeView.swift */; };
+		399D0C0E26501E1100B18B84 /* PlaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D0C0D26501E1100B18B84 /* PlaneView.swift */; };
+		399D0C10265021DA00B18B84 /* BaggageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D0C0F265021DA00B18B84 /* BaggageView.swift */; };
 		39B5F95F264C63CC002EBCDC /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F95E264C63CC002EBCDC /* Flight.swift */; };
 		39B5F961264C63E6002EBCDC /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F960264C63E6002EBCDC /* Plane.swift */; };
 		39B5F963264C657D002EBCDC /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F962264C657D002EBCDC /* Employee.swift */; };
@@ -45,9 +46,10 @@
 		397D81292640A3D4001CA44D /* BuyTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTickets.swift; sourceTree = "<group>"; };
 		397D812B2640AD72001CA44D /* EmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesView.swift; sourceTree = "<group>"; };
 		397D812D2640AD82001CA44D /* PlanesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesView.swift; sourceTree = "<group>"; };
-		397D812F2640AD8E001CA44D /* BaggageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageView.swift; sourceTree = "<group>"; };
 		397EA9B92649DE3E0015F0F9 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		399D0C0B2650152200B18B84 /* EmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeView.swift; sourceTree = "<group>"; };
+		399D0C0D26501E1100B18B84 /* PlaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneView.swift; sourceTree = "<group>"; };
+		399D0C0F265021DA00B18B84 /* BaggageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageView.swift; sourceTree = "<group>"; };
 		39B5F95E264C63CC002EBCDC /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		39B5F960264C63E6002EBCDC /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		39B5F962264C657D002EBCDC /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
@@ -73,7 +75,6 @@
 				397D812D2640AD82001CA44D /* PlanesView.swift */,
 				397D812B2640AD72001CA44D /* EmployeesView.swift */,
 				39782B92264937C00040AE3A /* FlightsList.swift */,
-				397D812F2640AD8E001CA44D /* BaggageView.swift */,
 			);
 			path = "Tab Pages";
 			sourceTree = "<group>";
@@ -135,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				399D0C0B2650152200B18B84 /* EmployeeView.swift */,
+				399D0C0D26501E1100B18B84 /* PlaneView.swift */,
+				399D0C0F265021DA00B18B84 /* BaggageView.swift */,
 			);
 			path = "List Pages";
 			sourceTree = "<group>";
@@ -228,7 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				397D81302640AD8E001CA44D /* BaggageView.swift in Sources */,
+				399D0C0E26501E1100B18B84 /* PlaneView.swift in Sources */,
 				397D810E2640980C001CA44D /* AppDelegate.swift in Sources */,
 				397D812E2640AD82001CA44D /* PlanesView.swift in Sources */,
 				39B5F965264C658C002EBCDC /* Baggage.swift in Sources */,
@@ -242,6 +245,7 @@
 				397D81102640980C001CA44D /* SceneDelegate.swift in Sources */,
 				39782B93264937C00040AE3A /* FlightsList.swift in Sources */,
 				39B5F95F264C63CC002EBCDC /* Flight.swift in Sources */,
+				399D0C10265021DA00B18B84 /* BaggageView.swift in Sources */,
 				397D812A2640A3D4001CA44D /* BuyTickets.swift in Sources */,
 				397D81122640980C001CA44D /* ContentView.swift in Sources */,
 			);
